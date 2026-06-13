@@ -1,5 +1,6 @@
 import { Category } from "@/types/categories.types";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
+import { styles } from "./styles";
 
 export default function PreviewCard({
   category,
@@ -37,59 +38,3 @@ export default function PreviewCard({
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  previewCard: {
-    width: 190,
-    borderRadius: 22,
-    padding: 20,
-    gap: 8,
-  },
-  previewEmoji: {
-    fontSize: 28,
-    lineHeight: 34,
-  },
-  previewTag: {
-    alignSelf: 'flex-start',
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-  previewTagText: {
-    fontSize: 10,
-    fontWeight: '600',
-    letterSpacing: 0.8,
-  },
-  previewName: {
-    fontSize: 17,
-    fontWeight: '700',
-    lineHeight: 22,
-  },
-  previewDesc: {
-    fontSize: 12,
-    lineHeight: 17,
-    opacity: 0.65,
-  },
-  previewFooter: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginTop: 4,
-  },
-  previewCount: {
-    fontSize: 11,
-    fontWeight: '500',
-    opacity: 0.45,
-  },
-  previewArrow: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  previewArrowText: {
-    fontSize: 13,
-    fontWeight: '600',
-  },    
-})

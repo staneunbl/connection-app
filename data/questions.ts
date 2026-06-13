@@ -1,7 +1,7 @@
 import { CardQuestion } from "@/types/categories.types";
 
 export const QUESTIONS: CardQuestion[] = [
-  // Deep Talk
+  // ==================== DEEP TALK ====================
   { id: 'dt-1', categoryId: 'deep-talk', mode: 'deep', text: "What's something you've never told anyone in this room?" },
   { id: 'dt-2', categoryId: 'deep-talk', mode: 'deep', text: "What's a moment that quietly changed who you are?" },
   { id: 'dt-3', categoryId: 'deep-talk', mode: 'deep', text: "Who in your life do you think you've never properly thanked?" },
@@ -25,7 +25,21 @@ export const QUESTIONS: CardQuestion[] = [
   { id: 'dt-21', categoryId: 'deep-talk', mode: 'deep', text: "What do you think is your emotional blind spot?" },
   { id: 'dt-22', categoryId: 'deep-talk', mode: 'deep', text: "What’s a memory you randomly return to, and why do you think that is?" },
 
-  // Chaos Mode
+  // New Deep Talk Questions
+  { id: 'dt-23', categoryId: 'deep-talk', mode: 'deep', text: "What’s one thing you wish you could change about the way you were raised?" },
+  { id: 'dt-24', categoryId: 'deep-talk', mode: 'deep', text: "When was the last time you cried, and what was it really about?" },
+  { id: 'dt-25', categoryId: 'deep-talk', mode: 'deep', text: "What does ‘home’ mean to you?" },
+  { id: 'dt-26', categoryId: 'deep-talk', mode: 'deep', text: "What’s a boundary you’ve been too scared to set?" },
+  { id: 'dt-27', categoryId: 'deep-talk', mode: 'deep', text: "Who do you miss that you’re not supposed to miss anymore?" },
+  { id: 'dt-28', categoryId: 'deep-talk', mode: 'deep', text: "What’s something you’re secretly proud of but never talk about?" },
+  { id: 'dt-29', categoryId: 'deep-talk', mode: 'deep', text: "How do you think you’ll be remembered when you’re gone?" },
+  { id: 'dt-30', categoryId: 'deep-talk', mode: 'deep', text: "What’s a dream you’ve given up on, and why?" },
+  { id: 'dt-31', categoryId: 'deep-talk', mode: 'deep', text: "What do you need more of in your life right now?" },
+  { id: 'dt-32', categoryId: 'deep-talk', mode: 'deep', text: "What’s the hardest truth you’ve had to accept about yourself?" },
+  { id: 'dt-33', categoryId: 'deep-talk', mode: 'deep', text: "If you could have one conversation with your future self, what would you ask?" },
+  { id: 'dt-34', categoryId: 'deep-talk', mode: 'deep', text: "What part of your personality do you hide from most people?" },
+
+  // ==================== CHAOS MODE ====================
   { id: 'cm-1', categoryId: 'chaos-mode', mode: 'chaos', text: "What's the most embarrassing thing in your search history right now?" },
   { id: 'cm-2', categoryId: 'chaos-mode', mode: 'chaos', text: "If everyone here had to vote, who's most likely to get arrested first?" },
   { id: 'cm-3', categoryId: 'chaos-mode', mode: 'chaos', text: "What's the dumbest thing you've ever lied about?" },
@@ -49,7 +63,21 @@ export const QUESTIONS: CardQuestion[] = [
   { id: 'cm-21', categoryId: 'chaos-mode', mode: 'chaos', text: "What’s something you’ve lied about that you got away with?" },
   { id: 'cm-22', categoryId: 'chaos-mode', mode: 'chaos', text: "Who in this room would survive a zombie apocalypse—and who wouldn’t?" },
 
-  // First Dates
+  // New Chaos Mode Questions
+  { id: 'cm-23', categoryId: 'chaos-mode', mode: 'chaos', text: "Read your last private conversation with the person to your left." },
+  { id: 'cm-24', categoryId: 'chaos-mode', mode: 'chaos', text: "What’s the most unhinged thing you’ve done while drunk?" },
+  { id: 'cm-25', categoryId: 'chaos-mode', mode: 'chaos', text: "Rank everyone here from most to least likely to go viral for something stupid." },
+  { id: 'cm-26', categoryId: 'chaos-mode', mode: 'chaos', text: "Show us your most used emoji and explain why." },
+  { id: 'cm-27', categoryId: 'chaos-mode', mode: 'chaos', text: "What’s something you’re 100% convinced is a government conspiracy?" },
+  { id: 'cm-28', categoryId: 'chaos-mode', mode: 'chaos', text: "Who here has the most toxic trait and what is it?" },
+  { id: 'cm-29', categoryId: 'chaos-mode', mode: 'chaos', text: "What’s the pettiest thing you’ve ever done for revenge?" },
+  { id: 'cm-30', categoryId: 'chaos-mode', mode: 'chaos', text: "Let the group choose your next phone wallpaper." },
+  { id: 'cm-31', categoryId: 'chaos-mode', mode: 'chaos', text: "What’s your most toxic trait in relationships?" },
+  { id: 'cm-32', categoryId: 'chaos-mode', mode: 'chaos', text: "Confess the most ridiculous thing you’ve ever googled at 3am." },
+  { id: 'cm-33', categoryId: 'chaos-mode', mode: 'chaos', text: "Who here would you least want to be stuck in an elevator with?" },
+  { id: 'cm-34', categoryId: 'chaos-mode', mode: 'chaos', text: "What’s the worst outfit you’ve ever worn in public?" },
+
+  // ==================== FIRST DATES ====================
   { id: 'fd-1', categoryId: 'first-dates', mode: 'deep', text: "What's something people get wrong about you at first?" },
   { id: 'fd-2', categoryId: 'first-dates', mode: 'deep', text: "What does your perfect ordinary Sunday look like?" },
   { id: 'fd-3', categoryId: 'first-dates', mode: 'deep', text: "What's a small thing that instantly makes you trust someone?" },
@@ -57,13 +85,31 @@ export const QUESTIONS: CardQuestion[] = [
   { id: 'fd-5', categoryId: 'first-dates', mode: 'deep', text: "What's a question you wish people asked you more often?" },
   { id: 'fd-6', categoryId: 'first-dates', mode: 'deep', text: "What's your love language and how did you figure it out?" },
 
-  // Old Friends
+  // New First Dates Questions
+  { id: 'fd-7', categoryId: 'first-dates', mode: 'deep', text: "What’s a value you refuse to compromise on?" },
+  { id: 'fd-8', categoryId: 'first-dates', mode: 'deep', text: "How do you recharge when you’re socially drained?" },
+  { id: 'fd-9', categoryId: 'first-dates', mode: 'deep', text: "What’s one thing that always makes you laugh?" },
+  { id: 'fd-10', categoryId: 'first-dates', mode: 'deep', text: "What does success look like for you?" },
+  { id: 'fd-11', categoryId: 'first-dates', mode: 'deep', text: "Are you more of a planner or a spontaneous person?" },
+  { id: 'fd-12', categoryId: 'first-dates', mode: 'deep', text: "What’s something on your bucket list that actually matters to you?" },
+  { id: 'fd-13', categoryId: 'first-dates', mode: 'deep', text: "How do you handle conflict in relationships?" },
+
+  // ==================== OLD FRIENDS / FRIENDS FOREVER ====================
   { id: 'of-1', categoryId: 'friends-forever', mode: 'chaos', text: "What's a secret of mine you've been holding for too long?" },
   { id: 'of-2', categoryId: 'friends-forever', mode: 'chaos', text: "What's the most chaotic thing we've ever done together?" },
   { id: 'of-3', categoryId: 'friends-forever', mode: 'chaos', text: "Be honest — what was your real first impression of me?" },
   { id: 'of-4', categoryId: 'friends-forever', mode: 'chaos', text: "What's a nickname you've secretly given someone here?" },
   { id: 'of-5', categoryId: 'friends-forever', mode: 'chaos', text: "What's the weirdest thing you know about someone in this group?" },
   { id: 'of-6', categoryId: 'friends-forever', mode: 'chaos', text: "If we made a movie about our friendship, what genre would it be and why?" },
+
+  // New Old Friends Questions
+  { id: 'of-7', categoryId: 'friends-forever', mode: 'chaos', text: "What’s the dumbest argument we’ve ever had?" },
+  { id: 'of-8', categoryId: 'friends-forever', mode: 'chaos', text: "Which inside joke do we need to explain to everyone else?" },
+  { id: 'of-9', categoryId: 'friends-forever', mode: 'chaos', text: "What’s one thing I do that secretly annoys you?" },
+  { id: 'of-10', categoryId: 'friends-forever', mode: 'chaos', text: "If we all went to jail together, who would be the mastermind?" },
+  { id: 'of-11', categoryId: 'friends-forever', mode: 'chaos', text: "What’s a memory with me that still makes you laugh?" },
+  { id: 'of-12', categoryId: 'friends-forever', mode: 'chaos', text: "Rate my flirting skills from 1-10 and explain." },
+  { id: 'of-13', categoryId: 'friends-forever', mode: 'chaos', text: "What’s something we should do together before we all get too old?" },
 ];
 
 export const getQuestionsByCategory = (categoryId: string): CardQuestion[] =>

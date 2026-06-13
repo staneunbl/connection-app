@@ -8,12 +8,12 @@ import {
   Modal,
   Pressable,
   ScrollView,
-  StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import CategoryCard from "./CategoryCard";
+import { styles } from "./styles";
 
 const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -101,63 +101,3 @@ export default function CategoryModal({
     </Modal>
   );
 }
-
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'flex-end',
-  },
-  sheet: {
-    backgroundColor: '#FFFBEA',
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
-    paddingHorizontal: 24,
-    paddingBottom: 48,
-    paddingTop: 12,
-  },
-  sheetHandle: {
-    width: 36,
-    height: 4,
-    borderRadius: 2,
-    backgroundColor: 'rgba(0,0,0,0.12)',
-    alignSelf: 'center',
-    marginBottom: 20,
-  },
-  sheetHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 6,
-  },
-  sheetTitle: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#1A1A1A',
-  },
-  sheetClose: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: 'rgba(0,0,0,0.07)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  sheetCloseText: {
-    fontSize: 13,
-    color: '#666',
-    fontWeight: '500',
-  },
-  sheetSub: {
-    fontSize: 14,
-    color: '#888',
-    marginBottom: 20,
-  },
-  scrollArea: {
-    maxHeight: 400,
-  },
-  modalCardList: {
-    gap: 12,
-    paddingBottom: 20,
-  },
-});

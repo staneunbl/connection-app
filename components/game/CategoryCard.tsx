@@ -1,7 +1,8 @@
 import { Category } from "@/types/categories.types";
 import { useRouter } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
+import { styles } from "./styles";
 
 export default function CategoryCard({
   category,
@@ -52,51 +53,3 @@ export default function CategoryCard({
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  modalCardList: {
-    gap: 12,
-  },
-  modalCard: {
-    borderRadius: 20,
-    padding: 20,
-    gap: 8,
-  },
-  modalCardTop: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 2,
-  },
-  modalCardEmoji: {
-    fontSize: 30,
-  },
-  modalCardBadge: {
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-  },
-  modalCardBadgeText: {
-    fontSize: 12,
-    fontWeight: '500',
-  },
-  modalCardName: {
-    fontSize: 22,
-    fontWeight: '700',
-  },
-  modalCardDesc: {
-    fontSize: 14,
-    lineHeight: 20,
-    opacity: 0.7,
-  },
-  modalCardFooter: {
-    borderTopWidth: 1,
-    paddingTop: 12,
-    marginTop: 4,
-  },
-  modalCardAction: {
-    fontSize: 13,
-    fontWeight: '600',
-    opacity: 0.8,
-  },
-});
