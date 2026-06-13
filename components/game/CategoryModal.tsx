@@ -1,15 +1,16 @@
-import { CATEGORIES } from "@/data";
+
+import { CATEGORIES } from "@/data/categories";
 import { Category } from "@/types/categories.types";
 import React, { useCallback, useEffect, useRef } from "react";
 import {
-    Animated,
-    Dimensions,
-    Modal,
-    Pressable,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  Animated,
+  Dimensions,
+  Modal,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import CategoryCard from "./CategoryCard";
 

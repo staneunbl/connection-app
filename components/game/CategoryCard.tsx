@@ -1,4 +1,5 @@
 import { Category } from "@/types/categories.types";
+import { useRouter } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -9,11 +10,25 @@ export default function CategoryCard({
   category: Category;
   onSelect: (c: Category) => void;
 }) {
+  const router = useRouter();
+
+  const handlePress = () => {
+    onSelect(category);
+
+    router.push({
+      pathname: "/card",
+      params: {
+        categoryId: category.id,
+        categoryName: category.name,
+      },
+    });
+  };
+
   return (
     <TouchableOpacity
       style={[styles.modalCard, { backgroundColor: category.color }]}
       activeOpacity={0.82}
-      onPress={() => onSelect(category)}
+      onPress={handlePress}
     >
       <View style={styles.modalCardTop}>
         <Text style={styles.modalCardEmoji}>{category.emoji}</Text>

@@ -1,6 +1,6 @@
 import CategoryModal from '@/components/game/CategoryModal';
 import PreviewCard from '@/components/game/CategoryPreview';
-import { CATEGORIES } from '@/data';
+import { CATEGORIES } from '@/data/categories';
 import { Category } from '@/types/categories.types';
 import { router } from 'expo-router';
 import React, { useCallback, useRef, useState } from 'react';
@@ -42,7 +42,7 @@ export default function GameScreen() {
   const handleCategorySelect = (category: Category) => {
     closeModal();
     router.push({
-      pathname: '/(tabs)/cards',
+      pathname: '/card',
       params: { categoryId: category.id, categoryName: category.name },
     });
   };
@@ -127,13 +127,13 @@ export default function GameScreen() {
         >
           <Text style={styles.btnPlayText}>Let's Play</Text>
         </TouchableOpacity>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.btnFriends}
           activeOpacity={0.8}
-          onPress={() => router.push('/(tabs)/friends')}
+          // onPress={() => router.push('/(tabs)/friends')}
         >
           <Text style={styles.btnFriendsEmoji}>👥</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       <CategoryModal
