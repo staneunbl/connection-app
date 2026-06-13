@@ -1,56 +1,81 @@
 import { useRouter } from "expo-router";
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Animated, {
-    Easing,
-    useAnimatedStyle,
-    useSharedValue,
-    withRepeat,
-    withSequence,
-    withTiming,
+  Easing,
+  useAnimatedStyle,
+  useSharedValue,
+  withDelay,
+  withRepeat,
+  withSequence,
+  withTiming,
 } from "react-native-reanimated";
 
 export default function SplashScreen() {
   const router = useRouter();
 
-  // animation values
-  const scale = useSharedValue(0.6);
-  const opacity = useSharedValue(0);
+  // shared values
+  const logoScale = useSharedValue(0.5);
+  const logoOpacity = useSharedValue(0);
+
+  const textOpacity = useSharedValue(0);
+  const screenOpacity = useSharedValue(1);
 
   useEffect(() => {
-    // entry animation
-    scale.value = withSequence(
-      withTiming(1.1, { duration: 500, easing: Easing.out(Easing.exp) }),
-      withTiming(1, { duration: 200 })
+    // LOGO entrance
+    logoScale.value = withSequence(
+      withTiming(1.15, {
+        duration: 500,
+        easing: Easing.out(Easing.exp),
+      }),
+      withTiming(1, { duration: 300 })
     );
 
-    opacity.value = withTiming(1, { duration: 600 });
+    logoOpacity.value = withTiming(1, { duration: 500 });
 
-    // subtle pulse loop
-    scale.value = withRepeat(
-      withTiming(1.05, { duration: 1200 }),
-      -1,
-      true
+    // TEXT fade in slightly delayed
+    textOpacity.value = withDelay(
+      300,
+      withTiming(1, { duration: 600 })
     );
 
-    // navigate after 2s
+    // gentle pulse loop
+    logoScale.value = withRepeat(
+      withSequence(
+        withTiming(1.05, { duration: 1200 }),
+        withTiming(1, { duration: 1200 })
+      ),
+      -1
+    );
+
+    // EXIT animation before navigation
     const timer = setTimeout(() => {
-      router.replace("/home");
-    }, 2000);
+      screenOpacity.value = withTiming(0, { duration: 400 });
+
+      setTimeout(() => {
+        router.replace("/game");
+      }, 400);
+    }, 2200);
 
     return () => clearTimeout(timer);
   }, []);
 
-  const logoStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ scale: scale.value }],
-      opacity: opacity.value,
-    };
-  });
+  const logoStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: logoScale.value }],
+    opacity: logoOpacity.value,
+  }));
+
+  const textStyle = useAnimatedStyle(() => ({
+    opacity: textOpacity.value,
+    transform: [{ translateY: textOpacity.value ? 0 : 10 }],
+  }));
+
+  const screenStyle = useAnimatedStyle(() => ({
+    opacity: screenOpacity.value,
+  }));
 
   return (
-    <View style={styles.container}>
-      {/* Animated Logo */}
+    <Animated.View style={[styles.container, screenStyle]}>
       <Animated.View style={[styles.logoRing, logoStyle]}>
         <View style={styles.logoInner}>
           <View style={styles.iconHead} />
@@ -58,14 +83,14 @@ export default function SplashScreen() {
         </View>
       </Animated.View>
 
-      <Animated.Text style={[styles.title, logoStyle]}>
+      <Animated.Text style={[styles.title, textStyle]}>
         Connection
       </Animated.Text>
 
-      <Text style={styles.subtitle}>
+      <Animated.Text style={[styles.subtitle, textStyle]}>
         Questions that bring people closer
-      </Text>
-    </View>
+      </Animated.Text>
+    </Animated.View>
   );
 }
 
