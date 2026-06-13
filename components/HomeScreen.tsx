@@ -56,6 +56,11 @@ export default function HomeScreen({ navigation }: { navigation?: any }) {
             <Text style={styles.badgeText}>🍻 Chaos Mode</Text>
           </View>
         </View>
+        <View style={styles.badgeRow}>
+          <View style={styles.badge}>
+            <Text style={styles.badgeText}>✨ and More...</Text>
+          </View>
+        </View>
       </View>
 
       {/* Bottom: CTAs */}
@@ -67,9 +72,9 @@ export default function HomeScreen({ navigation }: { navigation?: any }) {
         >
           <Text style={styles.btnPrimaryText}>Start session</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btnGhost} activeOpacity={0.6}>
+        {/* <TouchableOpacity style={styles.btnGhost} activeOpacity={0.6}>
           <Text style={styles.btnGhostText}>How to play</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </SafeAreaView>
   );
