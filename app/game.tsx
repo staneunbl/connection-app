@@ -15,7 +15,7 @@ import {
   View
 } from 'react-native';
 
-const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+const { height: SCREEN_HEIGHT, width: SCREEN_WIDTH } = Dimensions.get('window');
 
 export default function GameScreen() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -55,6 +55,20 @@ export default function GameScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* Ambient background shapes */}
+      <View style={styles.bgGlowTop} />
+      <View style={styles.bgGlowBottom} />
+      <View style={styles.bgRing} />
+      <View style={styles.bgDotGridWrap}>
+        {Array.from({ length: 5 }).map((_, row) => (
+          <View key={row} style={styles.bgDotRow}>
+            {Array.from({ length: 6 }).map((_, col) => (
+              <View key={col} style={styles.bgDot} />
+            ))}
+          </View>
+        ))}
+      </View>
+
       <ScrollView
         contentContainerStyle={styles.scroll}
         showsVerticalScrollIndicator={false}
@@ -120,12 +134,16 @@ export default function GameScreen() {
 
       {/* ── Sticky CTA ── */}
       <View style={styles.ctaBar}>
+        <View style={styles.ctaBarFade} pointerEvents="none" />
         <TouchableOpacity
           style={styles.btnPlay}
           activeOpacity={0.85}
           onPress={openModal}
         >
           <Text style={styles.btnPlayText}>Let's Play</Text>
+          <View style={styles.btnPlayIcon}>
+            <Text style={styles.btnPlayIconText}>→</Text>
+          </View>
         </TouchableOpacity>
       </View>
 
@@ -141,10 +159,60 @@ export default function GameScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFBEA',
+    backgroundColor: '#FBF7EC',
+    overflow: 'hidden',
   },
   scroll: {
-    paddingBottom: 120,
+    paddingBottom: 130,
+  },
+
+  // ── Ambient background ──
+  bgGlowTop: {
+    position: 'absolute',
+    width: SCREEN_WIDTH * 1.1,
+    height: SCREEN_WIDTH * 1.1,
+    borderRadius: SCREEN_WIDTH,
+    backgroundColor: '#FFE033',
+    opacity: 0.35,
+    top: -SCREEN_WIDTH * 0.62,
+    right: -SCREEN_WIDTH * 0.35,
+  },
+  bgGlowBottom: {
+    position: 'absolute',
+    width: SCREEN_WIDTH * 0.9,
+    height: SCREEN_WIDTH * 0.9,
+    borderRadius: SCREEN_WIDTH,
+    backgroundColor: '#F5A623',
+    opacity: 0.16,
+    bottom: -SCREEN_WIDTH * 0.45,
+    left: -SCREEN_WIDTH * 0.35,
+  },
+  bgRing: {
+    position: 'absolute',
+    width: 260,
+    height: 260,
+    borderRadius: 130,
+    borderWidth: 1.5,
+    borderColor: 'rgba(26,26,26,0.06)',
+    top: 90,
+    right: -90,
+  },
+  bgDotGridWrap: {
+    position: 'absolute',
+    top: 70,
+    left: 28,
+    opacity: 0.5,
+  },
+  bgDotRow: {
+    flexDirection: 'row',
+    marginBottom: 14,
+  },
+  bgDot: {
+    width: 3,
+    height: 3,
+    borderRadius: 1.5,
+    backgroundColor: 'rgba(26,26,26,0.08)',
+    marginRight: 14,
   },
 
   // Hero
@@ -177,11 +245,11 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   heroTitle: {
-    fontSize: 44,
+    fontSize: 46,
     fontWeight: '700',
     color: '#1A1A1A',
     letterSpacing: -1.5,
-    lineHeight: 48,
+    lineHeight: 50,
     marginBottom: 14,
   },
   heroTitleItalic: {
@@ -191,7 +259,7 @@ const styles = StyleSheet.create({
   heroSub: {
     fontSize: 15,
     fontWeight: '400',
-    color: '#888',
+    color: '#8A8A8A',
     lineHeight: 24,
   },
 
@@ -206,7 +274,7 @@ const styles = StyleSheet.create({
   sectionLabel: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#BBB',
+    color: '#C4BFAE',
     letterSpacing: 1.2,
     textTransform: 'uppercase',
   },
@@ -231,12 +299,17 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   stepsCard: {
-    backgroundColor: '#fff',
-    borderRadius: 18,
+    backgroundColor: 'rgba(255,255,255,0.78)',
+    borderRadius: 20,
     overflow: 'hidden',
     borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.06)',
+    borderColor: 'rgba(26,26,26,0.05)',
     marginTop: 14,
+    shadowColor: '#1A1A1A',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.04,
+    shadowRadius: 24,
+    elevation: 1,
   },
   stepRow: {
     flexDirection: 'row',
@@ -274,7 +347,7 @@ const styles = StyleSheet.create({
   },
   stepSub: {
     fontSize: 12,
-    color: '#AAA',
+    color: '#B0AB9C',
   },
 
   // CTA bar
@@ -283,38 +356,50 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    flexDirection: 'row',
-    gap: 10,
     paddingHorizontal: 24,
     paddingBottom: 36,
-    paddingTop: 16,
-    backgroundColor: '#FFFBEA',
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(0,0,0,0.06)',
+  },
+  ctaBarFade: {
+    position: 'absolute',
+    top: -40,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#FBF7EC',
+    opacity: 0.92,
   },
   btnPlay: {
-    flex: 1,
+    flexDirection: 'row',
     backgroundColor: '#1A1A1A',
-    borderRadius: 16,
-    paddingVertical: 16,
+    borderRadius: 18,
+    paddingVertical: 18,
+    paddingHorizontal: 24,
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 10,
+    shadowColor: '#1A1A1A',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.18,
+    shadowRadius: 20,
+    elevation: 6,
   },
   btnPlayText: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: '600',
     color: '#FFD700',
     letterSpacing: 0.2,
   },
-  btnFriends: {
-    width: 52,
-    height: 52,
-    borderRadius: 16,
-    backgroundColor: '#FFE033',
+  btnPlayIcon: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: 'rgba(255,215,0,0.16)',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  btnFriendsEmoji: {
-    fontSize: 22,
+  btnPlayIconText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#FFD700',
   },
 });
