@@ -7,6 +7,7 @@ import {
   Dimensions,
   Modal,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -81,7 +82,11 @@ export default function CategoryModal({
               Choose the vibe for tonight
             </Text>
 
-            <View style={styles.modalCardList}>
+            <ScrollView
+              style={styles.scrollArea}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={styles.modalCardList}
+            >
               {CATEGORIES.map((cat) => (
                 <CategoryCard
                   key={cat.id}
@@ -89,7 +94,7 @@ export default function CategoryModal({
                   onSelect={handleSelect}
                 />
               ))}
-            </View>
+            </ScrollView>
           </Pressable>
         </Animated.View>
       </Pressable>
@@ -148,7 +153,11 @@ const styles = StyleSheet.create({
     color: '#888',
     marginBottom: 20,
   },
+  scrollArea: {
+    maxHeight: 400,
+  },
   modalCardList: {
     gap: 12,
+    paddingBottom: 20,
   },
 });

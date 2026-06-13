@@ -127,13 +127,6 @@ export default function GameScreen() {
         >
           <Text style={styles.btnPlayText}>Let's Play</Text>
         </TouchableOpacity>
-        {/* <TouchableOpacity
-          style={styles.btnFriends}
-          activeOpacity={0.8}
-          // onPress={() => router.push('/(tabs)/friends')}
-        >
-          <Text style={styles.btnFriendsEmoji}>👥</Text>
-        </TouchableOpacity> */}
       </View>
 
       <CategoryModal
@@ -145,7 +138,6 @@ export default function GameScreen() {
   );
 }
 
-// ─── Styles ───────────────────────────────────────────────────────────────────
 const styles = StyleSheet.create({
   container: {
     flex: 1,
