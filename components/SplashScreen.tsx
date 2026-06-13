@@ -76,6 +76,9 @@ export default function SplashScreen() {
 
   return (
     <Animated.View style={[styles.container, screenStyle]}>
+      <View style={styles.orb1} />
+      <View style={styles.orb2} />
+
       <Animated.View style={[styles.logoRing, logoStyle]}>
         <View style={styles.logoInner}>
           <View style={styles.iconHead} />
@@ -101,6 +104,29 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  // Decorative orbs
+  orb1: {
+    position: 'absolute',
+    width: 300,
+    height: 300,
+    borderRadius: 150,
+    backgroundColor: '#FFF07A',
+    opacity: 0.35,
+    top: -80,
+    right: -60,
+  },
+  orb2: {
+    position: 'absolute',
+    width: 180,
+    height: 180,
+    borderRadius: 90,
+    backgroundColor: '#F5A623',
+    opacity: 0.25,
+    bottom: 120,
+    left: -30,
+  },
+
 
   logoRing: {
     width: 110,
